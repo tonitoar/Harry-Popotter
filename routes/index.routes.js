@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const fs = require('fs');
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -20,13 +21,18 @@ router.get("/spells", (req, res, next) => {
 
 //TEST-HOUSE
 router.get("/test-house", (req, res, next) => {
-  res.render("inside/test-house");
+  try {
+    const data = fs.readFileSync('houseTest.json');
+    const houses = JSON.parse(data);
+    res.json(houses);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 
 router.post('/test-house', (req, res, next) => {
-  res.render("inside/test-house");
-  })
+})
 
 //PROFILE
 

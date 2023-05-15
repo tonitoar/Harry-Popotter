@@ -5,6 +5,9 @@ require("dotenv").config();
 // ℹ️ Connects to the database
 require("./db");
 
+// Requiero el módulo de sistemas de ficheros para poder leer después el fichero
+const fs = require('fs');
+
 // Handles http requests (express is node js framework)
 // https://www.npmjs.com/package/express
 const express = require("express");
@@ -16,6 +19,10 @@ const hbs = require("hbs");
 const app = express();
 
 const name = "Toni"
+
+// NI IDEA para leer .json
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
