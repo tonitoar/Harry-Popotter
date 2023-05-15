@@ -4,32 +4,23 @@ const { Schema, model } = require("mongoose");
 const combatSchema = new Schema(
   {
     Player1: {
-      house: String, 
-      username: String, 
-      spells: [{
-        name: String,
-        powerlvl: Number,  
-        required: true, 
-      }],
+      type: ObjectId, 
+      }, // objcetID
     },
+    {
+      Player1: {
+        type: ObjectId, 
+        }, // objcetID
+      },
 
-    Player2: {
-      house: String, 
-      username: String, 
-      spells: [{
-        name: String,
-        powerlvl: Number,  
-        required: true, 
-      }], 
-    },
+      {
     Result: {
-      type: String,
-      required: true,
+      type: ObjectId, 
+    }, // objcetID
     },
-  },
 
 );
 
-const Combat = model("User", combatSchema);
+const Combat = model("Combat", combatSchema);
 
 module.exports = Combat;
