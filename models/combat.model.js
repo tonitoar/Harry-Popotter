@@ -10,6 +10,8 @@ const combatSchema = new Schema(
     {
       Player2: {
         User2: {type: Schema.Types.ObjectId, ref: "users", required: true},
+
+        
         }, // objcetID
       },
 
