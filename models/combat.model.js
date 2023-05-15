@@ -4,21 +4,23 @@ const { Schema, model } = require("mongoose");
 const combatSchema = new Schema(
   {
     Player1: {
-      spells: {
-        type: [String],
+      house: String, 
+      username: String, 
+      spells: [{
+        name: String,
+        powerlvl: Number,  
         required: true, 
-        unique: true, 
-      },
-      required: true, 
+      }],
     },
 
     Player2: {
-      spells: {
-        type: [String],
+      house: String, 
+      username: String, 
+      spells: [{
+        name: String,
+        powerlvl: Number,  
         required: true, 
-        unique: true, 
-      },
-      required: true, 
+      }], 
     },
     Result: {
       type: String,
