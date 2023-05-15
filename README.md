@@ -61,3 +61,12 @@ const cactusSchema = new Schema({
 This project consumes this [API](https://api.chucknorris.io/) to make some random phrases appear in the home page.
 
 ---
+
+
+
+
+
+
+SPELLS ---> agafar dates amb el axios, solament mostrar. 
+
+Profile ---> spellls cridar api amb axios agafar un dels camps del nom, s'han de guardar a la base de dates ([object]). POST PROFILE I UN REDIRECT A "/". Valor propety: undefiend. 4 valors definits en tema objecte. 

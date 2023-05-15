@@ -3,30 +3,24 @@ const { Schema, model } = require("mongoose");
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
 const combatSchema = new Schema(
   {
-    house: {
-      type: String,
-      required: false,
-      unique: true,
-      trim: true,
+    Player1: {
+      type: ObjectId, 
+      }, // objcetID
     },
-    spell: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true,
-      lowercase: true,
+    {
+      Player1: {
+        type: ObjectId, 
+        }, // objcetID
+      },
+
+      {
+    Result: {
+      type: ObjectId, 
+    }, // objcetID
     },
-    wand: {
-      type: String,
-      required: true,
-    },
-  },
-  {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
-    timestamps: true,
-  }
+
 );
 
-const Combat = model("User", combatSchema);
+const Combat = model("Combat", combatSchema);
 
 module.exports = Combat;
