@@ -4,20 +4,22 @@ const { Schema, model } = require("mongoose");
 const combatSchema = new Schema(
   {
     Player1: {
-      type: ObjectId, 
+      User1: {type: Schema.Types.ObjectId, ref: "users", required: true}, 
       }, // objcetID
     },
     {
-      Player1: {
-        type: ObjectId, 
+      Player2: {
+        User2: {type: Schema.Types.ObjectId, ref: "users", required: true},
+
+        
         }, // objcetID
       },
 
-      {
-    Result: {
-      type: ObjectId, 
-    }, // objcetID
-    },
+    //   {
+    // Result: {
+    //   type: ObjectId, 
+    // }, // objcetID
+    // },
 
 );
 

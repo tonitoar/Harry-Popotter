@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
+const dataHouse = require("../houseTest.json")
+
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -23,13 +25,13 @@ router.get("/spells", (req, res, next) => {
 
 //TEST-HOUSE
 router.get("/test-house", (req, res, next) => {
-  res.render("inside/test-house");
+  console.log(dataHouse);
+  res.render("inside/test-house", {questions: dataHouse})
 });
 
 
 router.post('/test-house', (req, res, next) => {
-  res.render("inside/test-house");
-  })
+})
 
 //PROFILE
 

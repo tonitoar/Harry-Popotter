@@ -1,0 +1,267 @@
+[
+    {
+      "id": "1",
+      "text": "What is most important to you?",
+      "options": [
+        {
+          "text": "Courage",
+          "value": 3,
+          "house": "Gryffindor"
+        },
+        {
+          "text": "Wisdom",
+          "value": 2,
+          "house": "Ravenclaw"
+        },
+        {
+          "text": "Loyalty",
+          "value": 1,
+          "house": "Hufflepuff"
+        },
+        {
+          "text": "Ambition",
+          "value": 3,
+          "house": "Slytherin"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "text": "Do you believe that the end justifies the means?",
+      "options": [
+        {
+          "text": "Yes",
+          "value": 3,
+          "house": "Slytherin"
+        },
+        {
+          "text": "No",
+          "value": 1,
+          "house": "Hufflepuff"
+        },
+        {
+          "text": "Sometimes",
+          "value": 2,
+          "house": "Gryffindor"
+        },
+        {
+          "text": "It depends on the situation",
+          "value": 2,
+          "house": "Ravenclaw"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "text": "What is your idea of fun?",
+      "options": [
+        {
+          "text": "Exploring new places",
+          "value": 2,
+          "house": "Ravenclaw"
+        },
+        {
+          "text": "Winning",
+          "value": 3,
+          "house": "Gryffindor"
+        },
+        {
+          "text": "Spending time with friends",
+          "value": 1,
+          "house": "Hufflepuff"
+        },
+        {
+          "text": "Making new connections and networking",
+          "value": 3,
+          "house": "Slytherin"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "text": "How do you react under pressure?",
+      "options": [
+        {
+          "text": "I stay calm and focused",
+          "value": 2,
+          "house": "Ravenclaw"
+        },
+        {
+          "text": "I take charge and lead",
+          "value": 3,
+          "house": "Gryffindor"
+        },
+        {
+          "text": "I try to please everyone",
+          "value": 1,
+          "house": "Hufflepuff"
+        },
+        {
+          "text": "I use the pressure to motivate myself and work harder",
+          "value": 3,
+          "house": "Slytherin"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "text": "What type of people do you admire most?",
+      "options": [
+        {
+          "text": "Brave and daring people",
+          "value": 3,
+          "house": "Gryffindor"
+        },
+        {
+          "text": "Intelligent and wise people",
+          "value": 2,
+          "house": "Ravenclaw"
+        },
+        {
+          "text": "Kind and compassionate people",
+          "value": 1,
+          "house": "Hufflepuff"
+        },
+        {
+          "text": "Successful and influential people",
+          "value": 3,
+          "house": "Slytherin"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "text": "Which of these qualities do you value most in yourself?",
+      "options": [
+        {
+          "text": "Bravery",
+          "value": 3,
+          "house": "Gryffindor"
+        },
+        {
+          "text": "Intelligence",
+          "value": 2,
+          "house": "Ravenclaw"
+        },
+        {
+          "text": "Kindness",
+          "value": 1,
+          "house": "Hufflepuff"
+        },
+        {
+          "text": "Ambition",
+          "value": 3,
+          "house": "Slytherin"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "text": "What motivates you to succeed?",
+      "options": [
+        {
+          "text": "The desire to prove myself",
+          "value": 3,
+          "house": "Slytherin"
+        },
+        {
+          "text": "The desire to learn and grow",
+          "value": 2,
+          "house": "Ravenclaw"
+        },
+        {
+          "text": "The desire to make others happy",
+          "value": 1,
+          "house": "Hufflepuff"
+        },
+        {
+          "text": "The desire to be the best",
+          "value": 3,
+          "house": "Gryffindor"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "text": "How do you make decisions?",
+      "options": [
+        {
+          "text": "By following my instincts",
+          "value": 3,
+          "house": "Gryffindor"
+        },
+        {
+          "text": "By analyzing the situation and weighing the pros and cons",
+          "value": 2,
+          "house": "Ravenclaw"
+        },
+        {
+          "text": "By considering the needs and feelings of others",
+          "value": 1,
+          "house": "Hufflepuff"
+        },
+        {
+          "text": "By considering what will benefit me the most",
+          "value": 3,
+          "house": "Slytherin"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "text": "What do you think is your biggest flaw?",
+      "options": [
+        {
+          "text": "I can be reckless and impulsive",
+          "value": 3,
+          "house": "Gryffindor"
+        },
+        {
+          "text": "I can be too analytical and overthink things",
+          "value": 2,
+          "house": "Ravenclaw"
+        },
+        {
+          "text": "I can be too trusting and naive",
+          "value": 1,
+          "house": "Hufflepuff"
+        },
+        {
+          "text": "I can be too ambitious and ruthless",
+          "value": 3,
+          "house": "Slytherin"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "text": "What is your greatest strength?",
+      "options": [
+        {
+          "text": "My courage",
+          "value": 3,
+          "house": "Gryffindor"
+        },
+        {
+          "text": "My intelligence",
+          "value": 2,
+          "house": "Ravenclaw"
+        },
+        {
+          "text": "My kindness",
+          "value": 1,
+          "house": "Hufflepuff"
+        },
+        {
+          "text": "My ambition",
+          "value": 3,
+          "house": "Slytherin"
+        }
+      ]
+    }
+  ]
+
+
+
+
+
