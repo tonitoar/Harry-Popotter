@@ -1,8 +1,88 @@
-<h1>PROFILE VIEW</h1>
+<form action="/profile" method="POST">
+    <section id="profile">
+        <h2>Profile</h2>
+        <div id="username"></div>
+        <img id="house-photo" src="" alt="House Photo">
+        <div id="asset-buttons">
+            <div class="dropdown">
+                <button id="spells" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" name="spells">
+                    SPELLS
+                </button>
+                <ul class="dropdown-menu">
+                    {{#each spells}}
+                    <li><button class="dropdown-item" type="submit" name="spells" value="{{this}}">{{this}}</button>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="dropdown">
+                <button id="wand" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    WAND
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <button id="wandWood" class="dropdown-item dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Wood
+                        </button>
+                        <ul class="dropdown-menu">
+                            {{#each wandWoods}}
+                            <li><a class="dropdown-item" href="#">{{this}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                    <li>
+                        <button id="wandCore" class="dropdown-item dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Core
+                        </button>
+                        <ul class="dropdown-menu">
+                            {{#each wandCores}}
+                            <li><a class="dropdown-item" href="#">{{this}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
 
-<a href="/welcome"> BACK</a>
 
-<h2>House</h2>
-
-<h2>Username</h2>
-
+            <div class="dropdown">
+                <button id="patronus" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" name="patronus">
+                    PATRONUS
+                </button>
+                <ul class="dropdown-menu">
+                    {{#each patronus}}
+                    <li><button class="dropdown-item" type="submit" name="patronus" value="{{this}}">{{this}}</button>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="dropdown">
+                <button id="creature" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" name="creature">
+                    CREATURE
+                </button>
+                <ul class="dropdown-menu">
+                    {{#each creature}}
+                    <li><button class="dropdown-item" type="submit" name="creature" value="{{this}}">{{this}}</button>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div id="item" class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" name="item">
+                    ITEM
+                </button>
+                <ul class="dropdown-menu">
+                    {{#each item}}
+                    <li><button class="dropdown-item" type="submit" name="item" value="{{this}}">{{this}}</button></li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </section>
+</form>
