@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const axios = require('axios');
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -14,7 +15,9 @@ router.get("/welcome", (req, res, next) => {
 
 
 //SPELLS
-router.get("/spells", (req, res, next) => {
+router.get("/spells", (req, res, next) => { 
+  axios.request("https://api.potterdb.com/v1/spells")
+  .then(response => {console.log(response)})
   res.render("inside/spells");
 });
 
