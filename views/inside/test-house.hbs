@@ -1,16 +1,28 @@
+{{!-- <script id="testHouseTemplate" type="text/x-handlebars-template"></script> --}} {{!-- prova de funcionar .hbs --}}
+
+
 <form action="/test-house" method="POST">
 
 <h1>PERSONALITY TEST</h1>
 
-{{#each questions}} {{!-- esta relacionat amb el nom definit de la data, en aquest es questions --}}
-  <div class="question">
+{{#each questions}} {{!-- esta relacionat amb el nom definit de la data, en aquest es "questions" --}}
+  <div id="quiz" class="question">
     <h3>{{this.text}}</h3>
     <ul>
       {{#each this.options}}
-        <li>{{this.text}}</li>
+    {{!-- <li>{{this.text}}</li>    --}}
+    <input type="button" value="{{this.text}}"/>
       {{/each}}
     </ul>
   </div>
 {{/each}}
 
+<input type="submit" value="Send Results" id="submit" />
+
+<div id="results">
+  <p> You are {{this.options.house}}</p>
+</div>
+
 <form/>
+
+ </script>
