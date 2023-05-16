@@ -2,12 +2,12 @@
 
 <h1>PERSONALITY TEST</h1>
 
-{{#each questions}}
+{{#each questions}} {{!-- esta relacionat amb el nom definit de la data, en aquest es questions --}}
   <div class="question">
-    <h3>{{this.question}}</h3>
+    <h3>{{this.text}}</h3>
     <ul>
-      {{#each this.answers}}
-        <li>{{this}}</li>
+      {{#each this.options}}
+        <li>{{this.text}}</li>
       {{/each}}
     </ul>
   </div>
