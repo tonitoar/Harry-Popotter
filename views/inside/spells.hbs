@@ -1,3 +1,20 @@
 <h1>SPELLS VIEW</h1>
 
+<a href="/welcome"> BACK</a>
 
+<div>
+{{#each spells}} 
+  
+    <h3>{{this.attributes.name}}</h3>
+
+    <ul>
+    {{!-- <li>{{this.attributes.category}}</li> --}}
+    <li>{{this.attributes.effect}}</li>
+    {{!-- <p>{{this.attributes.image}}</p>
+    <p>{{this.attributes.wiki}}</p> --}}
+    </ul>
+   
+  
+{{/each}}
+
+</div>

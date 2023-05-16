@@ -5,26 +5,26 @@ const userSchema = new Schema(
   {
     email: {
       type: String, 
-      // required: true, 
+      required: true, 
       unique: true, 
     }, 
  
     username: {
       type: String,
-      // required: true,
+      required: true,
       unique: true, 
     },
   
     password: {
       type: String,
-      // required: true,
+      required: true,
       unique: true, 
     },
 
     house: {
       type: String,
       enum: ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"],   
-      required: false,
+      // required: false,
       unique: true,
       //imatge ????
     },
@@ -37,7 +37,7 @@ const userSchema = new Schema(
     patronus: {
       type: String,
       enum: ["Swan", "Mouse", "Goat", "Phoenix", "Fox", "Otter", "Deer", "Hare", "Boar", "Cat", "Deer", "Ladybug", "Lynx", "Wolf", "Weasel", "Horse", "Jack Russell Terrier", "Magpie", "Eagle"], // BONUS: SECCIO ESPECIAL
-      required: true,
+      // required: true,
       unique: true, 
     },
  
@@ -51,14 +51,14 @@ const userSchema = new Schema(
     creature : {
       type: String,
       enum: ["Dragon", "Basilisk", "Acromantula", "Chimaera", "Nundu", "WereWolf", "Unicorn", "Phoenix", "Griffin", "Centaur", "Kelpie", "Thestral", "Thunderbird", "Hippogriff", "Dementor", "Giant Squid", "Bowtruckle", "Fairy", "Niffler", "Mooncalf", "Augurey"], // BONUS: SECCIÓ ESPECIAL
-      required: true,
+      // required: true,
       unique: true, 
     },
 
     item: {
       type: String,
       enum: ["Nimbus 2000", "Firebolt", "Resurrection Stone", "Cloak of Invisibility", "Philosopher's Stone", "Time-Turner", "Crystal ball", "Floo powder", "Sword of Gryffindor", "Golden Egg", "Deluminator", "Sorting Hat", "Tom Riddle's Diary", "Marauders Map", "Snitch"],
-      required: true,
+      // required: true,
       unique: true, 
     },
  

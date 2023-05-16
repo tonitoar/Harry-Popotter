@@ -18,10 +18,14 @@ router.get("/welcome", (req, res, next) => {
 
 //SPELLS
 router.get("/spells", (req, res, next) => { 
-  axios.request("https://api.potterdb.com/v1/spells")
-  .then(response => {console.log(response)})
-  res.render("inside/spells");
+  axios.get("https://api.potterdb.com/v1/spells")
+  .then(response => {
+    console.log(response.data.data)
+    res.render("inside/spells", {spells: response.data.data})})
+
 });
+
+
 
 //TEST-HOUSE
 router.get("/test-house", (req, res, next) => {
