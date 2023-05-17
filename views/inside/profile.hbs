@@ -1,3 +1,6 @@
+
+
+
 <form action="/profile" method="POST">
     <section id="profile">
         <h2>Profile</h2>
@@ -11,14 +14,12 @@
                 </button>
                 <ul class="dropdown-menu">
                     {{#each spells}}
-                    <li><button class="dropdown-item" type="submit" name="spells" value="{{this}}">{{this}}</button>
-                    </li>
+                    <li><a class="dropdown-item" href="#" name="spells">{{this}}</a></li>
                     {{/each}}
                 </ul>
             </div>
             <div class="dropdown">
-                <button id="wand" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                <button id="wand" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" name="wand">
                     WAND
                 </button>
                 <ul class="dropdown-menu">
@@ -28,7 +29,7 @@
                             Wood
                         </button>
                         <ul class="dropdown-menu">
-                            {{#each wandWoods}}
+                            {{#each wandWood}}
                             <li><a class="dropdown-item" href="#">{{this}}</a></li>
                             {{/each}}
                         </ul>
@@ -39,15 +40,13 @@
                             Core
                         </button>
                         <ul class="dropdown-menu">
-                            {{#each wandCores}}
+                            {{#each wandCore}}
                             <li><a class="dropdown-item" href="#">{{this}}</a></li>
                             {{/each}}
                         </ul>
                     </li>
                 </ul>
             </div>
-
-
             <div class="dropdown">
                 <button id="patronus" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false" name="patronus">
@@ -55,8 +54,7 @@
                 </button>
                 <ul class="dropdown-menu">
                     {{#each patronus}}
-                    <li><button class="dropdown-item" type="submit" name="patronus" value="{{this}}">{{this}}</button>
-                    </li>
+                    <li><a class="dropdown-item" href="#">{{this}}</a></li>
                     {{/each}}
                 </ul>
             </div>
@@ -67,8 +65,7 @@
                 </button>
                 <ul class="dropdown-menu">
                     {{#each creature}}
-                    <li><button class="dropdown-item" type="submit" name="creature" value="{{this}}">{{this}}</button>
-                    </li>
+                    <li><a class="dropdown-item" href="#">{{this}}</a></li>
                     {{/each}}
                 </ul>
             </div>
@@ -79,7 +76,7 @@
                 </button>
                 <ul class="dropdown-menu">
                     {{#each item}}
-                    <li><button class="dropdown-item" type="submit" name="item" value="{{this}}">{{this}}</button></li>
+                    <li><a class="dropdown-item" href="#">{{this}}</a></li>
                     {{/each}}
                 </ul>
             </div>
