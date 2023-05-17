@@ -80,15 +80,12 @@ router.post('/test-house', (req, res, next) => {
 //PROFILE
 
 router.get('/profile', async (req, res, next) => {
+  // console.log(req.session.currentUser.username)
   try {
-
+    const username = req.session.currentUser.username;
     const spells = User.schema.path('spells').enumValues;
     const wandWood= User.schema.path('wand.wood').enumValues;
     const wandCore= User.schema.path('wand.core').enumValues;
-    // const wandWoods = User.schema.path('wand').schema.tree.wood.enumValues; // Retrieve wand wood enum values
-    // const wandCores = User.schema.path('wand').schema.tree.core.enumValues; // Retrieve wand core enum values
-    //const wandWoods = User.schema.path('wand').caster.schema.path('wood').enumValues;
-    //const wandCores = User.schema.path('wand').caster.schema.path('core').enumValues;  
     const patronus = User.schema.path('patronus').enumValues;
     const creature = User.schema.path('creature').enumValues;
     const item = User.schema.path('item').enumValues;
@@ -96,7 +93,7 @@ router.get('/profile', async (req, res, next) => {
     // console.log("madera", wandWood)
    // console.log("core", wandCore)
    const housePhoto = req.session.housePhoto; 
-    res.render('inside/profile', { spells, wandWood, wandCore, patronus, creature, item, housePhoto });
+    res.render('inside/profile', { username, spells, wandWood, wandCore, patronus, creature, item, housePhoto });
 
 } catch (err) {
   next(err);
