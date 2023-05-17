@@ -26,9 +26,13 @@
 {{#if userHouse}}
   <div id="results">
     <p>You are {{userHouse}}</p>
-    <img src="{{userHousePhoto}}" alt="{{userHouse}}" />
+    <img src="{{housePhoto}}" alt="{{userHouse}}" />
   </div>
 {{/if}}
+
+<a href="/profile?housePhoto={{housePhoto}}">
+  <button type="button">Go to Profile</button>
+</a>
 
 
 

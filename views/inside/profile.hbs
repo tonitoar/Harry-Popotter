@@ -1,88 +1,111 @@
-
-<h2>Hello user: {{username}}</h2>
-<h3>email: {{email}}</h3>
-<img src="{{profileImageSrc}}" alt="">
-
-
 <form action="/profile" method="POST">
     <section id="profile">
         <h2>Profile</h2>
-        <div id="username"></div>
-        <img id="house-photo" src="" alt="House Photo">
+        <div id="username">
+            <h2>{{username}}</h2>
+        </div>
+        <img id="house-photo" src="{{housePhoto}}" alt="House Photo">
         <div id="asset-buttons">
+            <div>
+                <h3 id="spells-heading">SPELLS: {{selectedSpells}}</h3>
+            </div>
             <div class="dropdown">
                 <button id="spells" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false" name="spells">
-                    SPELLS
+                    Spells
                 </button>
                 <ul class="dropdown-menu">
                     {{#each spells}}
-                    <li><a class="dropdown-item" href="#" name="spells">{{this}}</a></li>
-                    {{/each}}
-                </ul>
-            </div>
-            <div class="dropdown">
-                <button id="wand" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" name="wand">
-                    WAND
-                </button>
-                <ul class="dropdown-menu">
-                    <li>
-                        <button id="wandWood" class="dropdown-item dropdown-toggle" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Wood
-                        </button>
-                        <ul class="dropdown-menu">
-                            {{#each wandWood}}
-                            <li><a class="dropdown-item" href="#">{{this}}</a></li>
-                            {{/each}}
-                        </ul>
-                    </li>
-                    <li>
-                        <button id="wandCore" class="dropdown-item dropdown-toggle" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Core
-                        </button>
-                        <ul class="dropdown-menu">
-                            {{#each wandCore}}
-                            <li><a class="dropdown-item" href="#">{{this}}</a></li>
-                            {{/each}}
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="dropdown">
-                <button id="patronus" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false" name="patronus">
-                    PATRONUS
-                </button>
-                <ul class="dropdown-menu">
-                    {{#each patronus}}
-                    <li><a class="dropdown-item" href="#">{{this}}</a></li>
-                    {{/each}}
-                </ul>
-            </div>
-            <div class="dropdown">
-                <button id="creature" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false" name="creature">
-                    CREATURE
-                </button>
-                <ul class="dropdown-menu">
-                    {{#each creature}}
-                    <li><a class="dropdown-item" href="#">{{this}}</a></li>
-                    {{/each}}
-                </ul>
-            </div>
-            <div id="item" class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false" name="item">
-                    ITEM
-                </button>
-                <ul class="dropdown-menu">
-                    {{#each item}}
-                    <li><a class="dropdown-item" href="#">{{this}}</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="updateCategory(this.textContent, 'spells')"
+                            data-category="spells">{{this}}</a></li>
                     {{/each}}
                 </ul>
             </div>
         </div>
+        <div id="asset-buttons">
+            <div>
+                <h3 id="wand-heading">WAND: {{selectedWandWood}} - {{selectedWandCore}}</h3>
+            </div>
+            <div class="dropdown">
+                <button id="wandWood" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" name="wandWood">
+                    Wood
+                </button>
+                <ul class="dropdown-menu">
+                    {{#each wandWood}}
+                    <li><a class="dropdown-item" href="#" onclick="updateCategory(this.textContent, 'wandWood')"
+                            data-category="wandWood">{{this}}</a></li>
+                    {{/each}}
+                </ul>
+                <button id="wandCore" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" name="wandCore">
+                    Core
+                </button>
+                <ul class="dropdown-menu">
+                    {{#each wandCore}}
+                    <li><a class="dropdown-item" href="#" onclick="updateCategory(this.textContent, 'wandCore')"
+                            data-category="wandCore">{{this}}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div id="asset-buttons">
+            <div>
+                <h3 id="patronus-heading">PATRONUS: {{selectedPatronus}}</h3>
+            </div>
+            <div class="dropdown">
+                <button id="patronus" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" name="patronus">
+                    Patronus
+                </button>
+                <ul class="dropdown-menu">
+                    {{#each patronus}}
+                    <li><a class="dropdown-item" href="#" onclick="updateCategory(this.textContent, 'patronus')"
+                            data-category="patronus">{{this}}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div id="asset-buttons">
+                <div>
+                    <h3 id="creature-heading">CREATURE: {{selectedCreature}}</h3>
+                </div>
+                <div class="dropdown">
+                    <button id="creature" class="btn btn-secondary dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" name="creature">
+                        Creature
+                    </button>
+                    <ul class="dropdown-menu">
+                        {{#each creature}}
+                        <li><a class="dropdown-item" href="#" onclick="updateCategory(this.textContent, 'creature')"
+                                data-category="creature">{{this}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div id="asset-buttons">
+                    <div>
+                        <h3 id="item-heading">ITEM: {{selectedItem}}</h3>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" name="item">
+                            Item
+                        </button>
+                        <ul class="dropdown-menu">
+                            {{#each item}}
+                            <li><a class="dropdown-item" href="#" onclick="updateCategory(this.textContent, 'item')"
+                                    data-category="item">{{this}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
     </section>
 </form>
+
+
+<script>
+    function updateCategory(value, category) {
+        const headingId = `${category}-heading`;
+        const headingElement = document.getElementById(headingId);
+        headingElement.textContent = `${category.toUpperCase()}: ${value}`;
+    }
+</script>
