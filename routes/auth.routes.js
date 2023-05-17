@@ -29,7 +29,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: 'cloudinary-test',
+    folder: 'potter-pics',
     allowed_formats: ["jpg", "png", "jpeg", "webp"]
     // format: async (req, file) => 'png', // supports promises as well
     // public_id: (req, file) => 'computed-filename-using-request',
