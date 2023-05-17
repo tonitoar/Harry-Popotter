@@ -67,12 +67,13 @@ const housePhotos = {
 router.post('/test-house', (req, res, next) => {
 
   const answers = JSON.parse(req.body.answers);
-  console.log(calculateHouse(answers));
+  // console.log(calculateHouse(answers));
   const userHouse = calculateHouse(answers);
-  const userHousePhoto = housePhotos[userHouse];
+  const housePhoto = housePhotos[userHouse];
 
-  res.render("inside/test-house", { userHouse, userHousePhoto });
+  req.session.housePhoto = housePhoto;
 
+  res.render("inside/test-house", { userHouse, housePhoto });
 });
 
 
@@ -92,9 +93,10 @@ router.get('/profile', async (req, res, next) => {
     const creature = User.schema.path('creature').enumValues;
     const item = User.schema.path('item').enumValues;
     // console.log("vareta", wandCore)
-    console.log("madera", wandWood)
-    console.log("core", wandCore)
-    res.render('inside/profile', { spells, wandWood, wandCore, patronus, creature, item });
+    // console.log("madera", wandWood)
+   // console.log("core", wandCore)
+   const housePhoto = req.session.housePhoto; 
+    res.render('inside/profile', { spells, wandWood, wandCore, patronus, creature, item, housePhoto });
 
 } catch (err) {
   next(err);
