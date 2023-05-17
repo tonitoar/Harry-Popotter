@@ -20,6 +20,10 @@ const userSchema = new Schema({
     unique: true,
   },
 
+  profileImageSrc: {
+    type: String,
+  },
+
   house: {
     type: String,
     enum: ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"],

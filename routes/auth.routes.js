@@ -15,14 +15,46 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
+const multer = require("multer")
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+
+// Configuration 
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'cloudinary-test',
+    allowed_formats: ["jpg", "png", "jpeg", "webp"]
+    // format: async (req, file) => 'png', // supports promises as well
+    // public_id: (req, file) => 'computed-filename-using-request',
+  },
+});
+
+
+// const upload = multer ({dest: "./public/uploads/"})
+const upload = multer({storage})
+//upload.single("image")
+//upload.any()
+
 // GET /auth/signup
-router.get("/signup", isLoggedOut, (req, res) => {
+router.get("/signup", isLoggedOut,  (req, res) => {
   res.render("auth/signup");
 });
 
 // POST /auth/signup
-router.post("/signup", isLoggedOut, (req, res) => {
+router.post("/signup", isLoggedOut, upload.single("image"), (req, res) => {
   const { username, email, password } = req.body;
+
+  console.log("----> FILE:", req.file)
+  console.log("----> BODY:", req.body)
+  //req.file
+  //req.files
 
   // Check that username, email, and password are provided
   if (username === "" || email === "" || password === "") {
@@ -61,9 +93,11 @@ router.post("/signup", isLoggedOut, (req, res) => {
     .then((salt) => bcrypt.hash(password, salt))
     .then((hashedPassword) => {
       // Create a user and save it in the database
-      return User.create({ username, email, password: hashedPassword });
+      // return User.create({ username, email, password: hashedPassword, profileImageSrc: "/uploads/" + req.file.filename });
+      return User.create({ username, email, password: hashedPassword, profileImageSrc:req.file.path });
     })
     .then((user) => {
+      console.log("lets go login")
       res.redirect("/auth/login");
     })
     .catch((error) => {
@@ -140,6 +174,18 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     })
     .catch((err) => next(err));
 });
+
+
+router.get("/profile/:userId", (req, res, next) => {
+  const { userId } = req.params;
+
+  User.findById (userId)
+  .then(user => {
+    res.render("/profile", user)
+  })
+  .catch((err) => next(err));
+
+})
 
 // GET /auth/logout
 router.get("/logout", isLoggedIn, (req, res) => {

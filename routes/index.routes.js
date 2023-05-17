@@ -79,6 +79,17 @@ router.post('/test-house', (req, res, next) => {
 //PROFILE
 
 router.get('/profile', async (req, res, next) => {
+
+  console.log("req.session", req.session.currentUser._id)
+
+  // User.findById( req.session.currentUser._id)
+  // .then(result => {
+  //   console.log("user", result)
+
+  //   res.render("inside/profile", {user:result})
+  // }) 
+
+  //?tota la part de sota ha d anar a dins
   try {
 
     const spells = User.schema.path('spells').enumValues;
