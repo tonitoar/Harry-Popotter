@@ -67,12 +67,13 @@ const housePhotos = {
 router.post('/test-house', (req, res, next) => {
 
   const answers = JSON.parse(req.body.answers);
-  console.log(calculateHouse(answers));
+  // console.log(calculateHouse(answers));
   const userHouse = calculateHouse(answers);
-  const userHousePhoto = housePhotos[userHouse];
+  const housePhoto = housePhotos[userHouse];
+//user update
+  req.session.housePhoto = housePhoto;
 
-  res.render("inside/test-house", { userHouse, userHousePhoto });
-
+  res.render("inside/test-house", { userHouse, housePhoto });
 });
 
 
@@ -90,22 +91,21 @@ router.get('/profile', async (req, res, next) => {
   // }) 
 
   //?tota la part de sota ha d anar a dins
+  // console.log(req.session.currentUser.username)
+  // User.findById
   try {
-
+    const username = req.session.currentUser.username;
     const spells = User.schema.path('spells').enumValues;
     const wandWood= User.schema.path('wand.wood').enumValues;
     const wandCore= User.schema.path('wand.core').enumValues;
-    // const wandWoods = User.schema.path('wand').schema.tree.wood.enumValues; // Retrieve wand wood enum values
-    // const wandCores = User.schema.path('wand').schema.tree.core.enumValues; // Retrieve wand core enum values
-    //const wandWoods = User.schema.path('wand').caster.schema.path('wood').enumValues;
-    //const wandCores = User.schema.path('wand').caster.schema.path('core').enumValues;  
     const patronus = User.schema.path('patronus').enumValues;
     const creature = User.schema.path('creature').enumValues;
     const item = User.schema.path('item').enumValues;
     // console.log("vareta", wandCore)
-    console.log("madera", wandWood)
-    console.log("core", wandCore)
-    res.render('inside/profile', { spells, wandWood, wandCore, patronus, creature, item });
+    // console.log("madera", wandWood)
+   // console.log("core", wandCore)
+   const housePhoto = req.session.housePhoto; 
+    res.render('inside/profile', { username, spells, wandWood, wandCore, patronus, creature, item, housePhoto });
 
 } catch (err) {
   next(err);
@@ -122,7 +122,18 @@ router.post('/profile', async (req, res, next) => {
     const selectedCreature = req.body.creature;
     const selectedItem = req.body.item;
 
-    // Perform further processing or save the selected values as needed
+    // Find the user by their username stored in the session
+    const user = await User.findOne({ username: req.session.currentUser.username });
+
+    // Update the selected values in the user's profile
+    user.spells = selectedSpells;
+    user.wand = { wood: selectedWandWood, core: selectedWandCore };
+    user.patronus = selectedPatronus;
+    user.creature = selectedCreature;
+    user.item = selectedItem;
+
+    // Save the updated user profile
+    await user.save();
 
     res.redirect('/profile');
   } catch (err) {
