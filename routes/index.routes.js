@@ -70,7 +70,7 @@ router.post('/test-house', (req, res, next) => {
   // console.log(calculateHouse(answers));
   const userHouse = calculateHouse(answers);
   const housePhoto = housePhotos[userHouse];
-
+//user update
   req.session.housePhoto = housePhoto;
 
   res.render("inside/test-house", { userHouse, housePhoto });
@@ -81,6 +81,7 @@ router.post('/test-house', (req, res, next) => {
 
 router.get('/profile', async (req, res, next) => {
   // console.log(req.session.currentUser.username)
+  User.findById
   try {
     const username = req.session.currentUser.username;
     const spells = User.schema.path('spells').enumValues;
@@ -110,7 +111,18 @@ router.post('/profile', async (req, res, next) => {
     const selectedCreature = req.body.creature;
     const selectedItem = req.body.item;
 
-    // Perform further processing or save the selected values as needed
+    // Find the user by their username stored in the session
+    const user = await User.findOne({ username: req.session.currentUser.username });
+
+    // Update the selected values in the user's profile
+    user.spells = selectedSpells;
+    user.wand = { wood: selectedWandWood, core: selectedWandCore };
+    user.patronus = selectedPatronus;
+    user.creature = selectedCreature;
+    user.item = selectedItem;
+
+    // Save the updated user profile
+    await user.save();
 
     res.redirect('/profile');
   } catch (err) {

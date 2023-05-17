@@ -156,6 +156,9 @@ const userSchema = new Schema({
     // required: true,
     unique: true,
   },
+  housePhoto: {
+    type: String, 
+  }
 });
 
 const User = model("User", userSchema);
