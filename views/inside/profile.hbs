@@ -1,4 +1,3 @@
-
 <body id="viewProfile">
 
 
@@ -12,23 +11,24 @@
         <div id="username">
             <h2>{{user.username}}</h2>
         </div>
-        <img id="house-photo" src="{{user.housePhoto}}" alt="House Photo">
+        <img id="house-photo" src="{{housePhoto}}" alt="{{housePhoto}}" width="500" height="auto">
         <h3>{{user.house}}</h3>
         <div>
             <div>
                 <h3 id="spells-heading">SPELLS: {{selectedSpells}}</h3>
             </div>
-            <select name="spells" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <select id="spells" name="spells" class="form-select form-select-lg mb-3"
+                aria-label=".form-select-lg example" multiple>
                 {{!-- <option selected>Spells</option> --}}
                 {{#each spells}}
-                <option value="{{this.attributes.name}}">{{this.attributes.name}}</option>
+                <option value="{{this}}">{{this}}</option>
                 {{/each}}
             </select>
 
-        </div>
+            </div>
         <div>
             <div>
-                <h3 id="wand-heading">WAND: {{selectedWandWood}} - {{selectedWandCore}}</h3>
+                <h3 id="wand-heading">WAND: wood is {{selectedWandWood}} - core is {{selectedWandCore}}</h3>
             </div>
             <label for="wood">Choose wood:</label>
             <select id="wood" name="wood" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
@@ -49,8 +49,9 @@
             <div>
                 <h3 id="patronus-heading">PATRONUS: {{selectedPatronus}}</h3>
             </div>
-            <select id="patronus" name="patronus" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-             {{!--    <option selected>Patronus</option> --}}
+            <select id="patronus" name="patronus" class="form-select form-select-lg mb-3"
+                aria-label=".form-select-lg example">
+                {{!-- <option selected>Patronus</option> --}}
                 {{#each patronus}}
                 <option value="{{this}}">{{this}}</option>
                 {{/each}}
@@ -60,7 +61,7 @@
             <div>
                 <h3 id="creature-heading">CREATURE: {{selectedCreature}}</h3>
             </div>
-            <select name="creature" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <select id="creature" name="creature" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                 {{!-- <option selected>Creature</option> --}}
                 {{#each creature}}
                 <option value="{{this}}">{{this}}</option>
@@ -71,7 +72,7 @@
             <div>
                 <h3 id="item-heading">ITEM: {{selectedItem}}</h3>
             </div>
-            <select name="item" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <select id="item" name="item" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                 {{!-- <option selected>Item</option> --}}
                 {{#each item}}
                 <option value="{{this}}">{{this}}</option>
@@ -92,5 +93,72 @@
         const headingElement = document.getElementById(headingId);
         headingElement.textContent = `${category.toUpperCase()}: ${value}`;
     }
+
+    const selectElement = document.getElementById('spells');
+    const maxSelections = 4;
+
+    selectElement.addEventListener('change', () => {
+        const selectedOptions = Array.from(selectElement.selectedOptions);
+        if (selectedOptions.length > maxSelections) {
+            // If more options are selected than the limit, deselect the last selected option
+            selectedOptions[selectedOptions.length - 1].selected = false;
+        }
+    });
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var spellsSelect = document.getElementById('spells');
+    var spellsHeading = document.getElementById('spells-heading');
+    
+    var woodSelect = document.getElementById('wood');
+    var woodHeading = document.getElementById('wand-heading');
+    
+    var coreSelect = document.getElementById('core');
+    var coreHeading = document.getElementById('wand-heading');
+    
+    var patronusSelect = document.getElementById('patronus');
+    var patronusHeading = document.getElementById('patronus-heading');
+    
+    var creatureSelect = document.getElementById('creature');
+    var creatureHeading = document.getElementById('creature-heading');
+    
+    var itemSelect = document.getElementById('item');
+    var itemHeading = document.getElementById('item-heading');
+    
+    // Add event listeners for each select element
+    spellsSelect.addEventListener('change', function() {
+      updateSelectedOptions(spellsSelect, spellsHeading);
+    });
+    
+    woodSelect.addEventListener('change', function() {
+      updateSelectedOptions(woodSelect, woodHeading);
+    });
+    
+    coreSelect.addEventListener('change', function() {
+      updateSelectedOptions(coreSelect, coreHeading);
+    });
+    
+    patronusSelect.addEventListener('change', function() {
+      updateSelectedOptions(patronusSelect, patronusHeading);
+    });
+    
+    creatureSelect.addEventListener('change', function() {
+      updateSelectedOptions(creatureSelect, creatureHeading);
+    });
+    
+    itemSelect.addEventListener('change', function() {
+      updateSelectedOptions(itemSelect, itemHeading);
+    });
+    
+    function updateSelectedOptions(selectElement, headingElement) {
+      var selectedOptions = Array.from(selectElement.selectedOptions).map(function(option) {
+        return option.value;
+      });
+      
+      headingElement.textContent = selectElement.name.toUpperCase() + ': ' + selectedOptions.join(', ');
+    }
+  });
+
+
 
 </script>

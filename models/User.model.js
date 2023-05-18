@@ -27,17 +27,20 @@ const userSchema = new Schema({
 
   house: {
     type: String,
-    //enum: ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"],
-    // required: false,
-    //imatge ????
   },
 
-  spells: [
+  spells: 
     {
-      name: String,
-      powerlvl: Number,
+      name: {
+        type: String,
+        required: true,
+      },
+      powerlvl: {
+        type: Number,
+        default: () => Math.floor(Math.random() * 101)
+      },
     },
-  ],
+
 
   patronus: {
     type: String,
@@ -160,7 +163,7 @@ const userSchema = new Schema({
     // required: true,
     //unique: true, 
   },
-  housePhoto: {
+  photo: {
     type: String,
   },
 

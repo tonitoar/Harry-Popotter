@@ -74,6 +74,11 @@ h1 {
   color: 15px;
 }
 
+#spells {
+  height: 200px; /* Adjust the height to your desired value */
+  font-size: 16px; /* Adjust the font size to your desired value */
+  /* Add any additional styles you want to apply */
+}
 
 
 
