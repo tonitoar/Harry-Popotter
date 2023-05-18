@@ -25,7 +25,7 @@ const app = express();
 const name = "Toni"
 //
 //
-
+app.set('views', path.join(__dirname, 'views'));
   
 //
 //

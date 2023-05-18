@@ -49,7 +49,7 @@ router.get("/signup", isLoggedOut,  (req, res) => {
 
 // POST /auth/signup
 router.post("/signup", isLoggedOut, upload.single("image"), (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, patronus, creature, item, housePhoto } = req.body;
 
   console.log("----> FILE:", req.file)
   console.log("----> BODY:", req.body)
@@ -94,7 +94,17 @@ router.post("/signup", isLoggedOut, upload.single("image"), (req, res) => {
     .then((hashedPassword) => {
       // Create a user and save it in the database
       // return User.create({ username, email, password: hashedPassword, profileImageSrc: "/uploads/" + req.file.filename });
-      return User.create({ username, email, password: hashedPassword, profileImageSrc:req.file.path });
+      // return User.create({ username, email, password: hashedPassword, profileImageSrc:req.file.path });
+      const newUser = new User({
+        email,
+        username,
+        password: hashedPassword,
+        patronus,
+        creature,
+        item,
+        //housePhoto
+      });
+      return newUser.save();
     })
     .then((user) => {
       console.log("lets go login")
@@ -109,7 +119,7 @@ router.post("/signup", isLoggedOut, upload.single("image"), (req, res) => {
             "Username and email need to be unique. Provide a valid username or email.",
         });
       } else {
-        next(error);
+       // next(error);
       }
     });
 });
@@ -176,16 +186,16 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 });
 
 
-router.get("/profile/:userId", (req, res, next) => {
-  const { userId } = req.params;
+// router.get("/profile/:userId", (req, res, next) => {
+//   const { userId } = req.params;
 
-  User.findById (userId)
-  .then(user => {
-    res.render("/profile", user)
-  })
-  .catch((err) => next(err));
+//   User.findById (userId)
+//   .then(user => {
+//     res.render("/profile", user)
+//   })
+//   .catch((err) => next(err));
 
-})
+// })
 
 // GET /auth/logout
 router.get("/logout", isLoggedIn, (req, res) => {

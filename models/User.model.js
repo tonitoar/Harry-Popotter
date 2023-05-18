@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const mongoose = require('mongoose');
 
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
 const userSchema = new Schema({
@@ -158,11 +159,17 @@ const userSchema = new Schema({
       "Snitch",
     ],
     // required: true,
-    unique: true,
+    unique: true, 
   },
   housePhoto: {
-    type: String, 
-  }
+    type: String,
+  },
+  tests: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Test",
+    },
+  ],
 });
 
 const User = model("User", userSchema);
