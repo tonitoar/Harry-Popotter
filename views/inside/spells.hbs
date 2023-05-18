@@ -1,22 +1,69 @@
-<div class="text-center fw-bold mb-5 display-5">
-<h1 class="fw-bold mb-5 display-5">Spells</h1>
+<h1 class="fw-bold mb-5 display-5" "text-center">Spells</h1>
+
+<div id = "spellsimg"class="text-center fw-bold mb-5 display-5">
 
 
 
-<div>
+
+{{!-- <img  class="img-fluid" src="https://res.cloudinary.com/dvdoxs7vr/image/upload/v1684405496/potter-pics/karl-moran-jT5X2AkQdAE-unsplash_dqxgny.jpg" class="img-fluid" alt="..."> --}}
+
+{{!-- <div class="bg-image">
+
+    <h1 class="fw-bold mb-5 display-5" "text-center">Spells</h1>
+    
+  <img
+    src="https://res.cloudinary.com/dvdoxs7vr/image/upload/v1684405496/potter-pics/karl-moran-jT5X2AkQdAE-unsplash_dqxgny.jpg"
+    class="w-100"
+    alt="StreetMovieStyle"
+  />
+  <div class="mask" style="background-color: hsla(0, 0%, 0%, 0.6)">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      
+    </div>
+  </div>
+</div> --}}
+
+<div class="text-white mb-0" >
+
+
+
 {{#each spells}} 
   
     <h3>{{this.attributes.name}}</h3>
 
-    <ul>
+    <h5>
     {{!-- <li>{{this.attributes.category}}</li> --}}
-    <li>{{this.attributes.effect}}</li>
+    {{this.attributes.effect}}
     {{!-- <p>{{this.attributes.image}}</p>
     <p>{{this.attributes.wiki}}</p> --}}
-    </ul>
+    </h5>
    
-  
 {{/each}}
+
+{{#each spells}} 
+  
+    <h3>{{this.attributes.name}}</h3>
+
+    <h5>
+    {{!-- <li>{{this.attributes.category}}</li> --}}
+    {{this.attributes.effect}}
+    {{!-- <p>{{this.attributes.image}}</p>
+    <p>{{this.attributes.wiki}}</p> --}}
+    </h5>
+   
+{{/each}}
+
+
+
+
+
+{{!-- <div class="text-center">
+<a class="btn btn-primary" href="/auth/signup"> Sign Up</a>
+<a class="btn btn-primary" href="/auth/login"> Log In</a>
+<a class="btn btn-primary" href="/auth/logout"> Log Out</a>
+</div> --}}
+
+
 
 <a class="btn btn-primary text-center" href="/welcome"> Back</a>
 
