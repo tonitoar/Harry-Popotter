@@ -1,12 +1,70 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+ 
+  
+}
+
+#viewLogin {
   background-image:url('https://res.cloudinary.com/dvdoxs7vr/image/upload/v1684403782/potter-pics/jules-marvin-eguilos-YrcfSDVli3Y-unsplash_mtw83k.jpg');
   background-size:     cover;                      /* <------ */
   background-repeat:   no-repeat;
   background-position: center center;
-  
 }
+
+#viewSignup {
+  background-image:url('https://res.cloudinary.com/dvdoxs7vr/image/upload/v1684403782/potter-pics/jules-marvin-eguilos-YrcfSDVli3Y-unsplash_mtw83k.jpg');
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+#viewIndex {
+  background-image:url('https://res.cloudinary.com/dvdoxs7vr/image/upload/v1684403782/potter-pics/jules-marvin-eguilos-YrcfSDVli3Y-unsplash_mtw83k.jpg');
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+#viewMain {
+  background-image:url('https://res.cloudinary.com/dvdoxs7vr/image/upload/v1684420926/potter-pics/b-k-HAl6CKxM3xU-unsplash_rhxshx.jpg');
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+
+#viewSpells {
+  background-image:url('https://res.cloudinary.com/dvdoxs7vr/image/upload/v1684420926/potter-pics/b-k-HAl6CKxM3xU-unsplash_rhxshx.jpg');
+  background-size:     cover;                      
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+#viewCombatLobby {
+  background-image:url('https://res.cloudinary.com/dvdoxs7vr/image/upload/v1684421545/potter-pics/aditya-vyas-5qUJfO4NU4o-unsplash_gwzpk0.jpg');
+  background-size:     cover;                      
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+#viewCombatFight {
+  background-image:url('https://res.cloudinary.com/dvdoxs7vr/image/upload/v1684421545/potter-pics/aditya-vyas-5qUJfO4NU4o-unsplash_gwzpk0.jpg');
+  background-size:     cover;                      
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+#viewProfile {
+  background-image:url('https://res.cloudinary.com/dvdoxs7vr/image/upload/v1684421780/potter-pics/rae-tian-WE7YfTGpXlg-unsplash_ort7rc.jpg');
+  background-size:     cover;                      
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+
+
+
 
 a {
   color: #00b7ff;
@@ -16,14 +74,6 @@ h1 {
   color: 15px;
 }
 
-#spellsimg {
 
-  background-image: url("https://res.cloudinary.com/dvdoxs7vr/image/upload/v1684405496/potter-pics/karl-moran-jT5X2AkQdAE-unsplash_dqxgny.jpg");
-  background-size:     cover;                      
-  background-repeat:   no-repeat;
-  background-position: center center;
-
-
-}
 
 
