@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
 const userSchema = new Schema({
@@ -27,9 +27,8 @@ const userSchema = new Schema({
 
   house: {
     type: String,
-    enum: ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"],
+    //enum: ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"],
     // required: false,
-    unique: true,
     //imatge ????
   },
 
@@ -64,10 +63,10 @@ const userSchema = new Schema({
       "Eagle",
     ], // BONUS: SECCIO ESPECIAL
     // required: true,
-    unique: true,
+    //unique: true,
   },
 
-  wand: [
+  wand: 
     {
       wood: {
         type: String,
@@ -108,7 +107,7 @@ const userSchema = new Schema({
         ], // BONUS: SECCIO ESPECIAL
       },
     },
-  ],
+
 
   creature: {
     type: String,
@@ -136,7 +135,7 @@ const userSchema = new Schema({
       "Augurey",
     ], // BONUS: SECCIÓ ESPECIAL
     // required: true,
-    unique: true,
+   // unique: true,
   },
 
   item: {
@@ -159,17 +158,12 @@ const userSchema = new Schema({
       "Snitch",
     ],
     // required: true,
-    unique: true, 
+    //unique: true, 
   },
   housePhoto: {
     type: String,
   },
-  tests: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Test",
-    },
-  ],
+
 });
 
 const User = model("User", userSchema);
