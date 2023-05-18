@@ -2,10 +2,46 @@
 
 </body>
 
-<h1 class="text-center fw-bold mb-5 display-5">COMBAT LOBBY</h1>
+{{!-- <h1 class="text-center fw-bold mb-5 display-5">COMBAT LOBBY</h1>
 
 <div class="row justify-content-center">
   <div class="col-auto">
     <a class="btn btn-primary" href="/welcome">Back</a>
+  </div>
+</div> --}}
+
+
+<form action="/combat/lobby" method="POST">
+    <div class="user-profile">
+  {{!-- <h2>{{currentUser.homeName}}</h2> --}}
+  <h2>{{currentUser.username}}</h2>
+  <img src="{{currentUser.homePhoto}}" alt="Home Photo">
+  <h3>{{currentUser.house}}</h3>
+  <ul>
+    {{#each currentUser.spells}}
+    <li>
+      <span>{{this.name}}</span>
+      <span>Power Level: {{this.powerLevel}}</span>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+
+<div class="opponent-section">
+  <button id="choose-opponent-btn">Choose Opponent</button>
+  <div class="opponent-list">
+    <h4>Registered Opponent Users:</h4>
+    <ul>
+      {{#each opponents}}
+      <li>
+        <span>{{this.username}} : {{this.house}}</span>
+        {{!-- <ul>
+          {{#each this.spells}}
+          <li>{{this.name}}</li>
+          {{/each}}
+        </ul> --}}
+      </li>
+      {{/each}}
+    </ul>
   </div>
 </div>

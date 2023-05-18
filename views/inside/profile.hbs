@@ -6,106 +6,78 @@
 
 
 
-<form action="/profile/{{username}}" method="POST" enctype="multipart/form-data">
+<form action="/profile/{{user.username}}" method="POST">
     <section id="profile" class="text-center fw-bold mb-5 display-5">
         <h2 class="text-center fw-bold mb-5 display-5">Profile</h2>
         <div id="username">
-            <h2>{{username}}</h2>
+            <h2>{{user.username}}</h2>
         </div>
-        <img id="house-photo" src="{{housePhoto}}" alt="House Photo">
-        <div id="asset-buttons">
+        <img id="house-photo" src="{{user.housePhoto}}" alt="House Photo">
+        <h3>{{user.house}}</h3>
+        <div>
             <div>
                 <h3 id="spells-heading">SPELLS: {{selectedSpells}}</h3>
             </div>
-            <div class="dropdown">
-                <button id="spells" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false" name="spells">
-                    Spells
-                </button>
-                <ul class="dropdown-menu">
-                    {{#each spells}}
-                    <li><a class="dropdown-item" href="#" onclick="updateCategory(this.textContent, 'spells')"
-                            data-category="spells">{{this}}</a></li>
-                    {{/each}}
-                </ul>
-            </div>
+            <select name="spells" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                {{!-- <option selected>Spells</option> --}}
+                {{#each spells}}
+                <option value="{{this.attributes.name}}">{{this.attributes.name}}</option>
+                {{/each}}
+            </select>
+
         </div>
-        <div id="asset-buttons">
+        <div>
             <div>
                 <h3 id="wand-heading">WAND: {{selectedWandWood}} - {{selectedWandCore}}</h3>
             </div>
-            <div class="dropdown">
-                <button id="wandWood" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false" name="wandWood">
-                    Wood
-                </button>
-                <ul class="dropdown-menu">
-                    {{#each wandWood}}
-                    <li><a class="dropdown-item" href="#" onclick="updateCategory(this.textContent, 'wandWood')"
-                            data-category="wandWood">{{this}}</a></li>
-                    {{/each}}
-                </ul>
-                <button id="wandCore" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false" name="wandCore">
-                    Core
-                </button>
-                <ul class="dropdown-menu">
-                    {{#each wandCore}}
-                    <li><a class="dropdown-item" href="#" onclick="updateCategory(this.textContent, 'wandCore')"
-                            data-category="wandCore">{{this}}</a></li>
-                    {{/each}}
-                </ul>
-            </div>
+            <label for="wood">Choose wood:</label>
+            <select id="wood" name="wood" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                {{!-- <option selected>Wood</option> --}}
+                {{#each wandWood}}
+                <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+            <label for="core">Choose core:</label>
+            <select id="core" name="core" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                {{!-- <option selected>core</option> --}}
+                {{#each wandCore}}
+                <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
         </div>
-        <div id="asset-buttons">
+        <div>
             <div>
                 <h3 id="patronus-heading">PATRONUS: {{selectedPatronus}}</h3>
             </div>
-            <div class="dropdown">
-                <button id="patronus" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false" name="patronus">
-                    Patronus
-                </button>
-                <ul class="dropdown-menu">
-                    {{#each patronus}}
-                    <li><a class="dropdown-item" href="#" onclick="updateCategory(this.textContent, 'patronus')"
-                            data-category="patronus">{{this}}</a></li>
-                    {{/each}}
-                </ul>
+            <select id="patronus" name="patronus" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+             {{!--    <option selected>Patronus</option> --}}
+                {{#each patronus}}
+                <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div>
+            <div>
+                <h3 id="creature-heading">CREATURE: {{selectedCreature}}</h3>
             </div>
-            <div id="asset-buttons">
-                <div>
-                    <h3 id="creature-heading">CREATURE: {{selectedCreature}}</h3>
-                </div>
-                <div class="dropdown">
-                    <button id="creature" class="btn btn-secondary dropdown-toggle" type="button"
-                        data-bs-toggle="dropdown" aria-expanded="false" name="creature">
-                        Creature
-                    </button>
-                    <ul class="dropdown-menu">
-                        {{#each creature}}
-                        <li><a class="dropdown-item" href="#" onclick="updateCategory(this.textContent, 'creature')"
-                                data-category="creature">{{this}}</a></li>
-                        {{/each}}
-                    </ul>
-                </div>
-                <div id="asset-buttons">
-                    <div>
-                        <h3 id="item-heading">ITEM: {{selectedItem}}</h3>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false" name="item">
-                            Item
-                        </button>
-                        <ul class="dropdown-menu">
-                            {{#each item}}
-                            <li><a class="dropdown-item" href="#" onclick="updateCategory(this.textContent, 'item')"
-                                    data-category="item">{{this}}</a></li>
-                            {{/each}}
-                        </ul>
-                    </div>
-                </div>
+            <select name="creature" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                {{!-- <option selected>Creature</option> --}}
+                {{#each creature}}
+                <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div>
+            <div>
+                <h3 id="item-heading">ITEM: {{selectedItem}}</h3>
+            </div>
+            <select name="item" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                {{!-- <option selected>Item</option> --}}
+                {{#each item}}
+                <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+        </div>
 
     </section>
     <button type="submit">Save Profile</button>
@@ -120,4 +92,5 @@
         const headingElement = document.getElementById(headingId);
         headingElement.textContent = `${category.toUpperCase()}: ${value}`;
     }
+
 </script>
