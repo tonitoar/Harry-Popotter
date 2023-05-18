@@ -229,7 +229,7 @@ const housePhotos = {
       req.session.currentUser = updatedUser.toObject();
       // Remove the password field
       delete req.session.currentUser.password;
-      res.redirect(`/inside/profile/${updatedUser.username}`);
+      res.redirect(`profile/${updatedUser.username}`);
 
     })
     .catch((error) => {

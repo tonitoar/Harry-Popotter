@@ -1,6 +1,10 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image:url('https://res.cloudinary.com/dvdoxs7vr/image/upload/v1684403782/potter-pics/jules-marvin-eguilos-YrcfSDVli3Y-unsplash_mtw83k.jpg');
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center;
   
 }
 
@@ -10,6 +14,16 @@ a {
 
 h1 {
   color: 15px;
+}
+
+#spellsimg {
+
+  background-image: url("https://res.cloudinary.com/dvdoxs7vr/image/upload/v1684405496/potter-pics/karl-moran-jT5X2AkQdAE-unsplash_dqxgny.jpg");
+  background-size:     cover;                      
+  background-repeat:   no-repeat;
+  background-position: center center;
+
+
 }
 
 

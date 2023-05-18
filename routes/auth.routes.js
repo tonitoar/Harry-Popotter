@@ -111,6 +111,7 @@ router.post("/signup", isLoggedOut, upload.single("image"), (req, res) => {
       res.redirect("/auth/login");
     })
     .catch((error) => {
+      console.log("error", error)
       if (error instanceof mongoose.Error.ValidationError) {
         res.status(500).render("auth/signup", { errorMessage: error.message });
       } else if (error.code === 11000) {
