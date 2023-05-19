@@ -49,7 +49,7 @@ router.get("/signup", isLoggedOut,  (req, res) => {
 
 // POST /auth/signup
 router.post("/signup", isLoggedOut, upload.single("image"), (req, res) => {
-  const { username, email, password, patronus, creature, item, housePhoto } = req.body;
+  const { username, email, password, patronus, creature, item, housePhoto, spells } = req.body;
 
   console.log("----> FILE:", req.file)
   console.log("----> BODY:", req.body)

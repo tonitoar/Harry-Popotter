@@ -29,18 +29,17 @@ const userSchema = new Schema({
     type: String,
   },
 
-  spells: 
+  spells: [
     {
       name: {
         type: String,
-        required: true,
+        // required: true,
       },
       powerlvl: {
         type: Number,
-        default: () => Math.floor(Math.random() * 101)
       },
     },
-
+  ],
 
   patronus: {
     type: String,

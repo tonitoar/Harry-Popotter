@@ -14,6 +14,7 @@ router.get("/", (req, res, next) => {
 
 //MAIN
 router.get("/welcome", (req, res, next) => {
+  // console.log(req.session.currentUser)
   const user = req.session.currentUser;
   res.render("inside/main", user);
 });
@@ -171,17 +172,23 @@ router.get("/profile/:user", (req, res, next) => {
 router.post("/profile/:user", (req, res, next) => {
   const { user } = req.params;
   const { spells, wood, core, patronus, creature, item } = req.body;
+  //console.log("xxxxxxxxxxxxxxxxxxxxxxx------", req.body)
   // console.log("XXXXXXXXXX", req.body)
 
   // let updatedSpells = [];
   // if (Array.isArray(spells)) {
   //   updatedSpells = spells.map((spell) => ({ name: spell }));
   // }
-
+  const spellsPower=spells.map(spell =>{
+    console.log(spell)
+    return {name: spell, powerlvl: Math.floor(Math.random() * 101)};  
+  } ); 
+    console.log("--------------------",spellsPower)
+  
   User.findOneAndUpdate(
     { username: user },
     {
-      spells: spells,
+      spells: spellsPower, 
       //spells: updatedSpells,
       wand: { wood: wood, core: core },
       patronus: patronus,
@@ -192,7 +199,7 @@ router.post("/profile/:user", (req, res, next) => {
   )
     .then((updatedUser) => {
       // Update the user in the session object
-      console.log("UPDATED ------>", updatedUser);
+      //console.log("UPDATED ------>", updatedUser);
       req.session.currentUser = updatedUser.toObject();
       // Remove the password field
       delete req.session.currentUser.password;
@@ -214,7 +221,7 @@ router.get("/combat/:user/lobby", (req, res, next) => {
 
   User.findOne({ username: currentUserUsername })
     .then((currentUser) => {
-      console.log("--------------------->",typeof currentUser.spell)
+      console.log("--------------------->",typeof currentUser.spells)
       console.log("que es",currentUser.spells)
       console.log("que es",currentUser.key)
       User.find({ username: { $ne: currentUser.username } })
