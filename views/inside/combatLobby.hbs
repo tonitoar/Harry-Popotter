@@ -17,12 +17,12 @@
   <h2>{{currentUser.username}}</h2>
   <img src="{{currentUser.photo}}" alt="{{currentUser.photo}}" width="200" height="auto">
   <h3>{{currentUser.house}}</h3>
-  <h4>{{currentUser.spells}}</h4>
+  <h5>Your spells:</h5>
   <ul>
     {{#each currentUser.spells}} {{!-- // typeOf object  --}}
     <li>
-      {{!-- {{@key}} --> Power Level: {{this}} --}}
-      {{this.spells.name}} --> Power Level: {{this}}
+   {{!--     {{@key}} --> Power Level: {{this}} --}} 
+      {{this.name}} = damage: {{this.powerlvl}} 
     </li>
     {{/each}}
   </ul>
