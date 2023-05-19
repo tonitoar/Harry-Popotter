@@ -33,7 +33,7 @@ const userSchema = new Schema({
     {
       name: {
         type: String,
-        required: true,
+        // required: true,
       },
       powerlvl: {
         type: Number,
