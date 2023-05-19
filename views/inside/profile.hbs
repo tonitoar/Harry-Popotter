@@ -30,14 +30,14 @@
             <div>
                 <h3 id="wand-heading">WAND: wood is {{selectedWandWood}} - core is {{selectedWandCore}}</h3>
             </div>
-            <label for="wood">Choose wood:</label>
+            <label for="wood" class="h3">Choose wood:</label>
             <select id="wood" name="wood" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                 {{!-- <option selected>Wood</option> --}}
                 {{#each wandWood}}
                 <option value="{{this}}">{{this}}</option>
                 {{/each}}
             </select>
-            <label for="core">Choose core:</label>
+            <label for="core" class="h3">Choose core:</label>
             <select id="core" name="core" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                 {{!-- <option selected>core</option> --}}
                 {{#each wandCore}}
