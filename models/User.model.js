@@ -6,7 +6,7 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
+ 
   },
 
   username: {
@@ -18,7 +18,7 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    unique: true,
+
   },
 
   profileImageSrc: {
